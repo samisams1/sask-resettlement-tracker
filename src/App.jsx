@@ -1,10 +1,35 @@
-import react from 'react';
+import React, { useContext } from 'react';
+import Login from './components/Login';
+import { AuthContext } from './context/AuthContext';
+
+function MainApplication() {
+  // Fixed: Extracted 'logout' instead of 'login' since App needs to clear sessions
+  const { user, logout } = useContext(AuthContext);
+  
+  if (!user) return <Login />;
+  
+  return (
+    <div style={{ padding: '30px', fontFamily: 'sans-serif' }}>
+      <h2>The Tracker System</h2>
+      {/* Fixed 1: Targeted the specific string key .name to prevent an object render crash */}
+      <p>Welcome back, <strong>{user.name}</strong>!</p>
+      <p>Role Designation: {user.role}</p>
+      
+      <button 
+        onClick={logout}
+        style={{ padding: '6px 12px', background: 'red', color: '#fff', border: 'none', cursor: 'pointer', borderRadius: '4px' }}
+      >
+        Log Out
+      </button>
+    </div>
+  );
+}
 
 export default function App() {
-  return(
-    <div style={{padding:'20px'}}>
-      <h2> Saska towan Resettlement settlement  & Habit Tracker</h2>
-      <p> System Initialized Successfully</p>
-    </div>
-  )
+  return (
+    // Fixed 2: Wrapped the switchboard inside the AuthProvider tower cloud envelope
+    <AuthProvider>
+      <MainApplication />
+    </AuthProvider>
+  );
 }
