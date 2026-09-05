@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import Login from './components/Login';
 import { AuthContext, AuthProvider } from './context/AuthContext';
+import MilestoneTracker from './components/MilestoneTracker';
 
 function MainApplication() {
   // Fixed: Extracted 'logout' instead of 'login' since App needs to clear sessions
@@ -19,8 +20,10 @@ function MainApplication() {
         onClick={logout}
         style={{ padding: '6px 12px', background: 'red', color: '#fff', border: 'none', cursor: 'pointer', borderRadius: '4px' }}
       >
+       
         Log Out
       </button>
+       <MilestoneTracker/>
     </div>
   );
 }
