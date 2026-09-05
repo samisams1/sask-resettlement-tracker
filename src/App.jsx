@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import Login from './components/Login';
-import { AuthContext } from './context/AuthContext';
+import { AuthContext, AuthProvider } from './context/AuthContext';
 
 function MainApplication() {
   // Fixed: Extracted 'logout' instead of 'login' since App needs to clear sessions
