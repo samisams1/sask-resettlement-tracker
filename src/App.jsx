@@ -2,12 +2,15 @@ import React, { useContext } from 'react';
 import Login from './components/Login';
 import { AuthContext, AuthProvider } from './context/AuthContext';
 import MilestoneTracker from './components/MilestoneTracker';
+import HabitSandbox from './components/HabitSandbox';
+import IeltSpellingSandbox from './components/IeltSpellingSandbox';
 
 function MainApplication() {
   // Fixed: Extracted 'logout' instead of 'login' since App needs to clear sessions
   const { user, logout } = useContext(AuthContext);
   
   if (!user) return <Login />;
+   const newarr = [2,3,4,5]
   
   return (
     <div style={{ padding: '30px', fontFamily: 'sans-serif' }}>
@@ -24,6 +27,8 @@ function MainApplication() {
         Log Out
       </button>
        <MilestoneTracker/>
+       <HabitSandbox/>
+       <IeltSpellingSandbox/>
     </div>
   );
 }

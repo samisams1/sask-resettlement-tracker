@@ -41,7 +41,10 @@ export default function MilestoneTracker() {
   setMilestones([...milestones, newMileStone]);
   setNewInput(""); // 🚀 Fixed: Clears out the form text field input immediately!
 };
-
+const handleDeleteMilestone =(targetId)=>{
+  const newMilestones = milestones.filter((item) => item.id !== targetId);
+  setMilestones(newMilestones);
+}
 
   return (
     <div style={{ marginTop: '30px', padding: '20px', background: '#fff', borderRadius: '8px', border: '1px solid #eee' }}>
@@ -80,6 +83,9 @@ export default function MilestoneTracker() {
             >
               Approve Step
             </button>
+            <button onClick={()=>handleDeleteMilestone(item.id)}
+              style={{ padding: '4px 8px', marginLeft: '10px', background: '#dc3545', color: '#fff', border: 'none', borderRadius: '4px', cursor: 'pointer' }}  
+                >Delete</button>
           </li>
         ))}
       </ul>
