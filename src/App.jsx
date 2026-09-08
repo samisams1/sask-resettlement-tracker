@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import Login from './components/Login';
 import { AuthContext, AuthProvider } from './context/AuthContext';
 import MilestoneTracker from './components/MilestoneTracker';
@@ -6,36 +6,38 @@ import HabitSandbox from './components/HabitSandbox';
 import IeltSpellingSandbox from './components/IeltSpellingSandbox';
 
 function MainApplication() {
-  // Fixed: Extracted 'logout' instead of 'login' since App needs to clear sessions
   const { user, logout } = useContext(AuthContext);
   
+  // Fixed 1: Updated default state string to plural 'milestones' to eliminate the empty load bug
+  const [currentTab, setCurrentTab] = useState("milestones"); 
+
   if (!user) return <Login />;
-   const newarr = [2,3,4,5]
   
   return (
-    <div style={{ padding: '30px', fontFamily: 'sans-serif' }}>
-      <h2>The Tracker System</h2>
-      {/* Fixed 1: Targeted the specific string key .name to prevent an object render crash */}
-      <p>Welcome back, <strong>{user.name}</strong>!</p>
-      <p>Role Designation: {user.role}</p>
+    <div style={{ display: 'flex', padding: '30px', fontFamily: 'sans-serif', gap: '20px' }}>
       
-      <button 
-        onClick={logout}
-        style={{ padding: '6px 12px', background: 'red', color: '#fff', border: 'none', cursor: 'pointer', borderRadius: '4px' }}
-      >
-       
-        Log Out
-      </button>
-       <MilestoneTracker/>
-       <HabitSandbox/>
-       <IeltSpellingSandbox/>
+      {/* Sidebar Control Column Layout Strip */}
+      <aside style={{ width: '200px', background: '#eee', padding: '15px', borderRadius: '8px', height: 'fit-content' }}>
+        <h4>📌 Control Menu</h4>
+        <button onClick={() => setCurrentTab("milestones")} style={{ display: 'block', width: '100%', marginBottom: '10px', background: currentTab === "milestones" ? "#007bff" : "#fff", color: currentTab === "milestones" ? "#fff" : "#000", border: 'none', padding: '8px', borderRadius: '4px', cursor: 'pointer' }}>📋 Milestones</button>
+        <button onClick={() => setCurrentTab("habits")} style={{ display: 'block', width: '100%', marginBottom: '10px', background: currentTab === "habits" ? "#007bff" : "#fff", color: currentTab === "habits" ? "#fff" : "#000", border: 'none', padding: '8px', borderRadius: '4px', cursor: 'pointer' }}>🧠 Habits</button>
+        <button onClick={() => setCurrentTab("spelling")} style={{ display: 'block', width: '100%', marginBottom: '15px', background: currentTab === "spelling" ? "#007bff" : "#fff", color: currentTab === "spelling" ? "#fff" : "#000", border: 'none', padding: '8px', borderRadius: '4px', cursor: 'pointer' }}>🇬🇧 Spelling</button>
+        <button onClick={logout} style={{ width: '100%', background: 'red', color: '#fff', border: 'none', padding: '8px', borderRadius: '4px', cursor: 'pointer' }}>Log Out</button>
+      </aside>
+
+      {/* Main Feature Layout Screen Output Panel View */}
+      <main style={{ flexGrow: 1, padding: '10px', background: '#fff', borderRadius: '8px', border: '1px solid #ddd' }}>
+        <h2>Saskatchewan Portal Panel</h2>
+        {currentTab === "milestones" && <MilestoneTracker />}
+        {currentTab === "habits" && <HabitSandbox />}
+        {currentTab === "spelling" && <IeltSpellingSandbox />}  
+      </main>
     </div>
   );
 }
 
 export default function App() {
   return (
-    // Fixed 2: Wrapped the switchboard inside the AuthProvider tower cloud envelope
     <AuthProvider>
       <MainApplication />
     </AuthProvider>

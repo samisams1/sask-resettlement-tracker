@@ -1,5 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { AuthContext } from '../context/AuthContext';
+import IeltSpellingSandbox from './IeltSpellingSandbox';
 
 export default function Login() {
  const {login} = useContext(AuthContext);
@@ -30,6 +31,7 @@ export default function Login() {
           Submit
         </button>
       </form>
+      <IeltSpellingSandbox/>
     </div>
  );
 
