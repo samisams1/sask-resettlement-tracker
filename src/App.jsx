@@ -4,6 +4,7 @@ import { AuthContext, AuthProvider } from './context/AuthContext';
 import MilestoneTracker from './components/MilestoneTracker';
 import HabitSandbox from './components/HabitSandbox';
 import IeltSpellingSandbox from './components/IeltSpellingSandbox';
+import IeltGrammarSandbox from './components/IeltGrammarSandbox';
 
 function MainApplication() {
   const { user, logout } = useContext(AuthContext);
@@ -22,6 +23,7 @@ function MainApplication() {
         <button onClick={() => setCurrentTab("milestones")} style={{ display: 'block', width: '100%', marginBottom: '10px', background: currentTab === "milestones" ? "#007bff" : "#fff", color: currentTab === "milestones" ? "#fff" : "#000", border: 'none', padding: '8px', borderRadius: '4px', cursor: 'pointer' }}>📋 Milestones</button>
         <button onClick={() => setCurrentTab("habits")} style={{ display: 'block', width: '100%', marginBottom: '10px', background: currentTab === "habits" ? "#007bff" : "#fff", color: currentTab === "habits" ? "#fff" : "#000", border: 'none', padding: '8px', borderRadius: '4px', cursor: 'pointer' }}>🧠 Habits</button>
         <button onClick={() => setCurrentTab("spelling")} style={{ display: 'block', width: '100%', marginBottom: '15px', background: currentTab === "spelling" ? "#007bff" : "#fff", color: currentTab === "spelling" ? "#fff" : "#000", border: 'none', padding: '8px', borderRadius: '4px', cursor: 'pointer' }}>🇬🇧 Spelling</button>
+        <button onClick={() => setCurrentTab("grammer")} style={{ display: 'block', width: '100%', marginBottom: '15px', background: currentTab === "grammer" ? "#007bff" : "#fff", color: currentTab === "grammer" ? "#fff" : "#000", border: 'none', padding: '8px', borderRadius: '4px', cursor: 'pointer' }}>🇬🇧 Grammar</button>
         <button onClick={logout} style={{ width: '100%', background: 'red', color: '#fff', border: 'none', padding: '8px', borderRadius: '4px', cursor: 'pointer' }}>Log Out</button>
       </aside>
 
@@ -30,7 +32,8 @@ function MainApplication() {
         <h2>Saskatchewan Portal Panel</h2>
         {currentTab === "milestones" && <MilestoneTracker />}
         {currentTab === "habits" && <HabitSandbox />}
-        {currentTab === "spelling" && <IeltSpellingSandbox />}  
+        {currentTab === "spelling" && <IeltSpellingSandbox />} 
+        {currentTab === "grammer" && <IeltGrammarSandbox />} 
       </main>
     </div>
   );

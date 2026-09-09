@@ -31,7 +31,6 @@ export default function Login() {
           Submit
         </button>
       </form>
-      <IeltSpellingSandbox/>
     </div>
  );
 
