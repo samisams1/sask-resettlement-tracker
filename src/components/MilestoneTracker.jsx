@@ -1,14 +1,11 @@
 import React, { useState } from 'react';
+import { useMilestones } from '../hooks/useMilestones';
 
 export default function MilestoneTracker() {
-  // 1. Initialize local array state with default Saskatchewan immigration steps
-  const [milestones, setMilestones] = useState([
-    { id: 1, name: "IELTS Academic Exam", status: "Pending" },
-    { id: 2, name: "WES Credential Assessment", status: "Pending" },
-    { id: 3, name: "Saskatchewan Expression of Interest", status: "Pending" }
-  ]);
 
-  // Local state to track the text box input for a new milestone
+  // Extract all states and actions instantly with one line of code!
+  const { milestones, loading, error, addMilestone, removeMilestone } = useMilestones();
+
   const [newInput, setNewInput] = useState("");
 
   // FUNCTION A: Toggle status from "Pending" to "Approved"
@@ -45,6 +42,8 @@ const handleDeleteMilestone =(targetId)=>{
   const newMilestones = milestones.filter((item) => item.id !== targetId);
   setMilestones(newMilestones);
 }
+ if (loading) return <p>🔄 Syncing with Saskatchewan Cloud Server...</p>;
+  if (error) return <p style={{ color: 'red' }}>⚠️ Error: {error}</p>;
 
   return (
     <div style={{ marginTop: '30px', padding: '20px', background: '#fff', borderRadius: '8px', border: '1px solid #eee' }}>

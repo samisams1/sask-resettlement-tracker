@@ -8,7 +8,7 @@ const app = express();
 const PORT = 5050; // Dynamic Port matching your MacBook AirPlay configurations
 
 // Enable parsing frameworks and network clearance flags
-app.use(cors({ origin: 'http://localhost:5173' }));
+app.use(cors({ origin: 'http://localhost:5174' }));
 app.use(express.json()); // 🚀 Essential digital box-cutter middleware for POST processing
 
 // 1. GET Verification Ping Endpoint
