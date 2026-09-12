@@ -2,6 +2,7 @@
 const express = require('express');
 const cors = require('cors'); 
 const db = require('./data/mockDb'); 
+const e = require('express');
 
 const app = express();
 const PORT = 5050; // Dynamic Port matching your MacBook AirPlay configurations
@@ -44,7 +45,23 @@ app.post("/api/milestones", (req, res) => {
     return res.status(500).json({ error: "Internal Database execution timeout." });
   }
 });
+app.delete("/api/milestones/:id", (req, res) => {
+  // Fixed 1 & 2: Parsed the dynamic URL parameter ID using correct spelling rules
+  const targetedId = parseInt(req.params.id, 10);
 
+  // Validation Guard: Ensure the ID is a valid mathematical number string token
+  if (isNaN(targetedId)) {
+    return res.status(400).json({ error: "Invalid milestone identification parameter." });
+  }
+
+  // Fixed 4: Trigger our database data layer filter query to remove the item from server files
+  db.deleteMilestone(targetedId);
+
+  // Fixed 3: Returned a clean status 200 execution payload with properly closed syntax tags
+  return res.status(200).json({ 
+    message: `Milestone with ID ${targetedId} has been successfully deleted from server memory.` 
+  });
+});
 app.listen(PORT, () => {
   console.log(`Backend Express engine is listening live on http://localhost:${PORT}`);
 });
