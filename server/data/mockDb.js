@@ -23,7 +23,8 @@ const getMilestones = () => milestones;
 const getHabits = () =>habits;
 
 const addMilestone = (newMilestone)=> {
-    milestones = [...milestones,newMilestone]
+    milestones = [...milestones,newMilestone];
+    return newMilestone;
 }
 const  deleteMilestone = (targetId)=>{
     milestones= milestones.fill((item => item.id !== targetId));

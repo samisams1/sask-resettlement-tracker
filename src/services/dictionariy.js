@@ -1,39 +1,4 @@
-const DICTIONARY = [
-  // 🏢 Category 1: Work & Everyday Life
-  
-  { word: "embarrassment", sentence: "The technical glitch during the presentation caused great embarrassment." },
-  { word: "occurrence", sentence: "Heavy rainfall is a frequent occurrence in tropical rain forests." },
-  { word: "exaggerate", sentence: "Media outlets sometimes exaggerate news headlines to attract viewers." },
-  { word: "apparent", sentence: "The benefits of the new system became apparent within a few weeks." },
-  { word: "millennium", sentence: "The ancient ruins date back to the beginning of the first millennium." },
-  { word: "possession", sentence: "Please ensure you have all your personal possession items before leaving." },
-  { word: "harass", sentence: "The company policy states that no employee should harass a colleague." },
-
-  // 🧩 Category 8: Advanced Vowel & Complex Clusters
-  { word: "fluorescent", sentence: "The laboratory was illuminated by bright fluorescent lighting panels." },
-  { word: "questionnaire", sentence: "Participants were asked to complete a demographic questionnaire first." },
-  { word: "hierarchy", sentence: "There is a strict corporate hierarchy within the organization." },
-  { word: "bureaucracy", sentence: "Excessive government bureaucracy can slow down economic development." },
-  { word: "leisure", sentence: "The community center offers excellent sports and leisure facilities." },
-  { word: "foreign", sentence: "Studying abroad allows you to experience a foreign culture firsthand." },
-  { word: "catalogue", sentence: "You can find a complete list of reference books in the library catalogue." },
-
-  // 🎓 Category 9: Core Academic Fields & Subjects
-  { word: "architecture", sentence: "She decided to pursue a degree in sustainable urban architecture." },
-  { word: "psychology", sentence: "Our next module explores the basic principles of cognitive psychology." },
-  { word: "accounting", sentence: "The business administration program includes a compulsory module on accounting." },
-  { word: "archaeology", sentence: "The team discovered ancient pottery artifacts during the archaeology dig." },
-  { word: "philosophy", sentence: "He likes reading books about classical Greek philosophy and ethics." },
-  { word: "sociology", sentence: "The sociology lecture examined modern family structures in urban settings." },
-
-  // 🚀 Category 10: High-Frequency Writing Task 2 Data & Synonyms
-  { word: "deteriorate", sentence: "Air quality in the metropolitan area will continue to deteriorate." },
-  { word: "predominantly", sentence: "The island's local economy relies predominantly on international tourism." },
-  { word: "demonstrate", sentence: "The latest research findings clearly demonstrate a link between the variables." },
-  { word: "significant", sentence: "The data shows a significant increase in renewable energy adoption." },
-  { word: "beneficial", sentence: "Implementing strict waste management laws is beneficial to ecosystems." },
-  { word: "consequence", sentence: "Rising sea levels are a direct consequence of global warming." },
-  { word: "infrastructure", sentence: "The city requires massive investments to modernize its public transit infrastructure." },
+    const DICTIONARY = [
 
   // 🧳 Category 11: Transportation & Leisure Common Targets
   { word: "pedestrian", sentence: "The local council plans to build a new pedestrian crossing near the school." },
@@ -111,5 +76,33 @@ const DICTIONARY = [
   { word: "attendance", sentence: "A minimum attendance rate of eighty percent is mandatory." },
   { word: "literature", sentence: "You should complete the literature review before analyzing your data." },
   { word: "tutor", sentence: "If you are struggling with calculus, you can schedule a session with a tutor." },
-  { word: "analyze", sentence: "The software tools allow researchers to analyze complex data sets easily." }
+  { word: "analyze", sentence: "The software tools allow researchers to analyze complex data sets easily." },
+    { word: "pardon me", sentence: "a polite phrase used to apologize for a minor mistake, ask someone to repeat what they said, or grab attention" },
+  { word: "embarrassment", sentence: "The technical glitch during the presentation caused great embarrassment." },
+  { word: "occurrence", sentence: "Heavy rainfall is a frequent occurrence in tropical rain forests." },
+  { word: "exaggerate", sentence: "Media outlets sometimes exaggerate news headlines to attract viewers." },
+  { word: "apparent", sentence: "The benefits of the new system became apparent within a few weeks." },
+  { word: "millennium", sentence: "The ancient ruins date back to the beginning of the first millennium." },
+  { word: "possession", sentence: "Please ensure you have all your personal possession items before leaving." },
+  { word: "harass", sentence: "The company policy states that no employee should harass a colleague." },
+
+  // 🧩 Category 8: Advanced Vowel & Complex Clusters
+  { word: "fluorescent", sentence: "The laboratory was illuminated by bright fluorescent lighting panels." },
+  { word: "questionnaire", sentence: "Participants were asked to complete a demographic questionnaire first." },
+  { word: "hierarchy", sentence: "There is a strict corporate hierarchy within the organization." },
+   { word: "bureaucracy", sentence: "Excessive government bureaucracy can slow down economic development." },
+  { word: "leisure", sentence: "The community center offers excellent sports and leisure facilities." },
+  { word: "foreign", sentence: "Studying abroad allows you to experience a foreign culture firsthand." },
+    { word: "catalogue", sentence: "You can find a complete list of reference books in the library catalogue." },
+
+  // 🎓 Category 9: Core Academic Fields & Subjects
+    // 🏢 Category 1: Work & Everyday Life
+  { word: "architecture", sentence: "She decided to pursue a degree in sustainable urban architecture." },
+  { word: "psychology", sentence: "Our next module explores the basic principles of cognitive psychology." },
+  { word: "accounting", sentence: "The business administration program includes a compulsory module on accounting." },
+  { word: "sociology", sentence: "The sociology lecture examined modern family structures in urban settings." },
+        { word: "archaeology", sentence: "The team discovered ancient pottery artifacts during the archaeology dig." },
+        { word: "philosophy", sentence: "He likes reading books about classical Greek philosophy and ethics." },
+          { word: "predominantly", sentence: "The island's local economy relies predominantly on international tourism." },
+  { word: "demonstrate", sentence: "The latest research findings clearly demonstrate a link between the variables." },
 ];
