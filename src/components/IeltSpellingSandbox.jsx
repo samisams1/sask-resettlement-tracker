@@ -7,70 +7,13 @@ export default function IeltSpellingSandbox() {
 
 
  
-  { word: "itinerary", meaning: "A planned route or journey details.", example: "The travel agency provided us with a detailed holiday itinerary." },
+
+
   
-  { word: "restaurant", meaning: "A place where people pay to sit and eat meals.", example: "We booked a table at a local seafood restaurant near the harbor." },
-  { word: "souvenir", meaning: "A thing that is kept as a reminder of a person, place, or event.", example: "I bought a small traditional craft item as a souvenir from my trip." },
-  { word: "scenery", meaning: "The natural features of a landscape considered in terms of appearance.", example: "The train journey offers passengers views of beautiful mountain scenery." },
   
-  // 🏢 Workplace & Professional Settings
-  { word: "business", meaning: "The practice of making one's living by engaging in commerce.", example: "She decided to study international business management." },
-  { word: "colleague", meaning: "A person with whom one works in a profession or business.", example: "My colleague helped me finish the project ahead of the deadline." },
-  { word: "committee", meaning: "A group of people appointed for a specific function by a larger body.", example: "The research committee will review the proposal next week." },
-  { word: "professional", meaning: "Relating to or belonging to a profession; highly competent.", example: "Always maintain a professional attitude during your internship." },
-  { word: "success", meaning: "The accomplishment of an aim or purpose.", example: "Hard work and consistency are the keys to academic success." },
-  { word: "permanent", meaning: "Lasting or intended to last or remain unchanged indefinitely.", example: "He is looking for a permanent job after graduation." },
-  { word: "recommend", meaning: "Advise or suggest something as a good choice.", example: "Can you recommend a good book for this course?" },
-  { word: "disappoint", meaning: "Fail to fulfill the hopes or expectations of someone.", example: "I did not want to disappoint my mentor with poor results." },
-  { word: "necessary", meaning: "Required to be done, achieved, or present; essential.", example: "It is necessary to bring your ID to the examination hall." },
-  { word: "autumn", meaning: "The season after summer and before winter.", example: "The campus leaves turn beautiful shades of red and gold in autumn." },
-  { word: "tomorrow", meaning: "On the day after today.", example: "The assignment deadline has been extended until tomorrow afternoon." },
-  { word: "calendar", meaning: "A chart showing the days, weeks, and months of a year.", example: "Please check the academic calendar for upcoming holiday dates." },
-  { word: "millennium", meaning: "A period of a thousand years.", example: "The historic building was constructed just before the turn of the millennium." },
-  { word: "schedule", meaning: "A plan for carrying out a process, index, or procedure.", example: "You can download your exam schedule from the student portal." },
-  { word: "until", meaning: "Up to the time that or when.", example: "The library will remain open until midnight during finals week." },
 
-  // 🧳 Category 11: Transportation & Leisure Common Targets
-  { word: "pedestrian", sentence: "The local council plans to build a new pedestrian crossing near the school." },
-  { word: "passenger", sentence: "Every passenger must wear a seatbelt throughout the duration of the flight." },
-  { word: "itinerary", sentence: "The travel agency provided us with a detailed holiday itinerary." },
-  { word: "destination", sentence: "The coastal town is a highly popular summer holiday destination." },
-  { word: "restaurant", sentence: "We booked a table at a local seafood restaurant near the harbor." },
-  { word: "souvenir", sentence: "I bought a small traditional craft item as a souvenir from my trip." },
-  { word: "scenery", sentence: "The train journey offers passengers views of beautiful mountain scenery." },
-  { word: "accommodation", sentence: "The university provides affordable student accommodation on campus." },
-  { word: "business", sentence: "She decided to study international business management." },
-  { word: "colleague", sentence: "My colleague helped me finish the project ahead of the deadline." },
-  { word: "committee", sentence: "The research committee will review the proposal next week." },
-  { word: "professional", sentence: "Always maintain a professional attitude during your internship." },
-  { word: "success", sentence: "Hard work and consistency are the keys to academic success." },
-  { word: "permanent", sentence: "He is looking for a permanent job after graduation." },
-  { word: "recommend", sentence: "Can you recommend a good book for this course?" },
-  { word: "disappoint", sentence: "I did not want to disappoint my mentor with poor results." },
-  { word: "necessary", sentence: "It is necessary to bring your ID to the examination hall." },
-
-  // 📆 Category 2: Time, Dates & Seasons
-  { word: "wednesday", sentence: "Our weekly group tutorial takes place every Wednesday morning." },
-  { word: "february", sentence: "The second term of the academic year begins in February." },
-  { word: "autumn", sentence: "The campus leaves turn beautiful shades of red and gold in autumn." },
-  { word: "tomorrow", sentence: "The assignment deadline has been extended until tomorrow afternoon." },
-  { word: "calendar", sentence: "Please check the academic calendar for upcoming holiday dates." },
-  { word: "millennium", sentence: "The historic building was constructed just before the turn of the millennium." },
-  { word: "schedule", sentence: "You can download your exam schedule from the student portal." },
-  { word: "until", sentence: "The library will remain open until midnight during finals week." },
-
-  // 🛠️ Category 3: Hidden Silent Letters
-  { word: "government", sentence: "The local government offers funding grants for innovative research." },
-  { word: "environment", sentence: "We must take active steps to protect the natural environment." },
-  { word: "knowledge", sentence: "Practical experience is just as valuable as theoretical knowledge." },
-  { word: "foreign", sentence: "Learning a foreign language opens up global career opportunities." },
-  { word: "queue", sentence: "There was a long queue of students waiting outside the admissions office." },
-  { word: "rhythm", sentence: "The patient's heart rhythm was monitored closely during the study." },
-  { word: "receipt", sentence: "Please retain your tuition fee receipt for your financial records." },
-
-  // 🔄 Category 4: The Changing Word-Form Trap
-  { word: "maintenance", sentence: "Routine laboratory equipment maintenance is scheduled for Friday." },
-  { word: "argument", sentence: "Your essay needs a strong logical argument supported by evidence." },
+ 
+  
   { word: "pronunciation", sentence: "Practicing with native speakers will rapidly improve your pronunciation." },
   { word: "beneficial", sentence: "Regular study breaks are highly beneficial for mental focus." },
   { word: "influential", sentence: "The professor published an influential paper on climate change economics." },
@@ -190,10 +133,72 @@ export default function IeltSpellingSandbox() {
   { word: "will", meaning: "Expressing inevitable future facts or strong determination.", example: "The local government will fund the new environmental research project." },
   { word: "would", meaning: "Used to indicate a hypothetical scenario or habitual past action.", example: "He would always review his notes right before a presentation." },
  // 🧳 Transportation, Travel & Leisure
+ { word: "professional", meaning: "Relating to or belonging to a profession; highly competent.", example: "Always maintain a professional attitude during your internship." },
   { word: "pedestrian", meaning: "A person walking rather than travelling in a vehicle.", example: "The local council plans to build a new pedestrian crossing near the school." },
   { word: "passenger", meaning: "A traveler on a public or private conveyance other than the driver.", example: "Every passenger must wear a seatbelt throughout the duration of the flight." },
 { word: "accommodation", meaning: "A room, group of rooms, or building in which someone may live or stay.", example: "The university provides affordable student accommodation on campus." },
   { word: "destination", meaning: "The place to which someone or something is going.", example: "The coastal town is a highly popular summer holiday destination." },
+  { word: "itinerary", meaning: "A planned route or journey details.", example: "The travel agency provided us with a detailed holiday itinerary." },
+  
+    // 🏢 Workplace & Professional Settings
+  { word: "business", meaning: "The practice of making one's living by engaging in commerce.", example: "She decided to study international business management." },
+  { word: "colleague", meaning: "A person with whom one works in a profession or business.", example: "My colleague helped me finish the project ahead of the deadline." },
+  { word: "committee", meaning: "A group of people appointed for a specific function by a larger body.", example: "The research committee will review the proposal next week." },
+  
+  { word: "success", meaning: "The accomplishment of an aim or purpose.", example: "Hard work and consistency are the keys to academic success." },
+  { word: "permanent", meaning: "Lasting or intended to last or remain unchanged indefinitely.", example: "He is looking for a permanent job after graduation." },
+  { word: "recommend", meaning: "Advise or suggest something as a good choice.", example: "Can you recommend a good book for this course?" },
+  { word: "disappoint", meaning: "Fail to fulfill the hopes or expectations of someone.", example: "I did not want to disappoint my mentor with poor results." },
+  
+  { word: "souvenir", meaning: "A thing that is kept as a reminder of a person, place, or event.", example: "I bought a small traditional craft item as a souvenir from my trip." },
+  { word: "scenery", meaning: "The natural features of a landscape considered in terms of appearance.", example: "The train journey offers passengers views of beautiful mountain scenery." },
+  
+  { word: "restaurant", meaning: "A place where people pay to sit and eat meals.", example: "We booked a table at a local seafood restaurant near the harbor." },
+{ word: "necessary", meaning: "Required to be done, achieved, or present; essential.", example: "It is necessary to bring your ID to the examination hall." },
+  { word: "autumn", meaning: "The season after summer and before winter.", example: "The campus leaves turn beautiful shades of red and gold in autumn." },
+  { word: "tomorrow", meaning: "On the day after today.", example: "The assignment deadline has been extended until tomorrow afternoon." },
+  { word: "calendar", meaning: "A chart showing the days, weeks, and months of a year.", example: "Please check the academic calendar for upcoming holiday dates." },
+  { word: "millennium", meaning: "A period of a thousand years.", example: "The historic building was constructed just before the turn of the millennium." },
+  { word: "schedule", meaning: "A plan for carrying out a process, index, or procedure.", example: "You can download your exam schedule from the student portal." },
+  { word: "until", meaning: "Up to the time that or when.", example: "The library will remain open until midnight during finals week." },
+  { word: "destination", sentence: "The coastal town is a highly popular summer holiday destination." },
+  { word: "restaurant", sentence: "We booked a table at a local seafood restaurant near the harbor." },
+  { word: "scenery", sentence: "The train journey offers passengers views of beautiful mountain scenery." },
+  { word: "accommodation", sentence: "The university provides affordable student accommodation on campus." },
+  { word: "business", sentence: "She decided to study international business management." },
+  { word: "colleague", sentence: "My colleague helped me finish the project ahead of the deadline." },
+  { word: "committee", sentence: "The research committee will review the proposal next week." },
+  { word: "professional", sentence: "Always maintain a professional attitude during your internship." },
+  { word: "success", sentence: "Hard work and consistency are the keys to academic success." },
+  { word: "permanent", sentence: "He is looking for a permanent job after graduation." },
+  { word: "recommend", sentence: "Can you recommend a good book for this course?" },
+  { word: "disappoint", sentence: "I did not want to disappoint my mentor with poor results." },
+  { word: "necessary", sentence: "It is necessary to bring your ID to the examination hall." },
+ // 📆 Category 2: Time, Dates & Seasons
+  { word: "wednesday", sentence: "Our weekly group tutorial takes place every Wednesday morning." },
+  { word: "february", sentence: "The second term of the academic year begins in February." },
+  { word: "autumn", sentence: "The campus leaves turn beautiful shades of red and gold in autumn." },
+  { word: "tomorrow", sentence: "The assignment deadline has been extended until tomorrow afternoon." },
+  { word: "calendar", sentence: "Please check the academic calendar for upcoming holiday dates." },
+  { word: "millennium", sentence: "The historic building was constructed just before the turn of the millennium." },
+  { word: "schedule", sentence: "You can download your exam schedule from the student portal." },
+  { word: "until", sentence: "The library will remain open until midnight during finals week." },
+// 🛠️ Category 3: Hidden Silent Letters
+  { word: "government", sentence: "The local government offers funding grants for innovative research." },
+  { word: "environment", sentence: "We must take active steps to protect the natural environment." },
+  { word: "knowledge", sentence: "Practical experience is just as valuable as theoretical knowledge." },
+  { word: "foreign", sentence: "Learning a foreign language opens up global career opportunities." },
+  { word: "queue", sentence: "There was a long queue of students waiting outside the admissions office." },
+ // 🛠️ Category 3: Hidden Silent Letters
+  { word: "rhythm", sentence: "The patient's heart rhythm was monitored closely during the study." },
+  { word: "receipt", sentence: "Please retain your tuition fee receipt for your financial records." },
+
+  // 🔄 Category 4: The Changing Word-Form Trap
+  { word: "maintenance", sentence: "Routine laboratory equipment maintenance is scheduled for Friday." },
+  { word: "argument", sentence: "Your essay needs a strong logical argument supported by evidence." },
+  // 🧳 Category 11: Transportation & Leisure Common Targets
+  { word: "pedestrian", sentence: "The local council plans to build a new pedestrian crossing near the school." },
+  { word: "passenger", sentence: "Every passenger must wear a seatbelt throughout the duration of the flight." },
 ];
   const [currentIndex, setCurrentIndex] = useState(0);
   const [userGuess, setUserGuess] = useState("");
