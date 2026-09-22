@@ -227,7 +227,12 @@ export default function IeltSpellingSandbox() {
 
       setResult("Correct 🟢"); 
       setStoreIncorrect([...storeIncorrect, correctWord]);
-      
+       const utterance = new SpeechSynthesisUtterance("correct");
+    
+    // Fixed 1: Standardized the region target to standard British accent layout
+    utterance.lang = 'en-GB'; 
+    utterance.rate = 0.7; 
+    window.speechSynthesis.speak(utterance);
       // Fixed 2: Converted to dynamic functional parameter hooks loops
       setCorrectScore((prev) => prev + 1);
     } else {
