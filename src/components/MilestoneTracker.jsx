@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import { useMilestones } from '../hooks/useMilestones';
 
 export default function MilestoneTracker() {
@@ -7,6 +7,15 @@ export default function MilestoneTracker() {
   const { milestones, loading, error, addMilestone, removeMilestone } = useMilestones();
 
   const [newInput, setNewInput] = useState("");
+  const [searchQuery, setSearchQuery] = useState("");
+ // 🎯 SPRINT 16 PERFORMANCE CACHE GATE
+  // This operation is locked in cache and ONLY re-runs if milestones or searchQuery updates!
+  const filteredMilestones = useMemo(() => {
+    console.log("⚙️ Running heavy milestone filter query execution...");
+    return milestones.filter(item => 
+      item.name.toLowerCase().includes(searchQuery.toLowerCase())
+    );
+  }, [milestones, searchQuery]); // 🚀 Tracking dependencies tell React exactly when to refresh the cache
 
   // FUNCTION A: Toggle status from "Pending" to "Approved"
   const handleToggleStatus = (targetId) => {
@@ -18,10 +27,6 @@ export default function MilestoneTracker() {
     });
     setMilestones(updatedMilestones);
 
-    // 🎯 CHALLENGE 1: 
-    // Use milestones.map() to check each item. 
-    // If item.id === targetId, copy the object using ... and change status to "Approved".
-    // Save the resulting new array to state using setMilestones.
   };
 
   // FUNCTION B: Add a brand new milestone to the end of the array list
@@ -65,7 +70,7 @@ const handleDeleteMilestone =(targetId)=>{
 
       {/* Render the lists */}
       <ul style={{ paddingLeft: '0' }}>
-        {milestones.map((item) => (
+        {filteredMilestones.map((item) => (
           <li key={item.id} style={{ 
             listStyleType: 'none', 
             background: item.status === 'Approved' ? '#e6f4ea' : '#fff3cd',

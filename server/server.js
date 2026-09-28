@@ -15,16 +15,45 @@ const app = express();
 const PORT = process.env.PORT || 5050; // Fallback to 5050 if PORT is undefined
 const MONGO_URI = process.env.MONGO_URI;
 
-app.use(cors({ origin: 'http://localhost:5173' }));
+app.use(cors({ origin: ['http://localhost:5173','http://localhost:5174'] }));
 app.use(express.json());
 
 // 3. 🎯 Execute the asynchronous Mongoose connection pipeline
 mongoose.connect(MONGO_URI)
   .then(() => console.log("🟢 Local MongoDB Connected Successfully on Port 27017!"))
   .catch((err) => console.error("🔴 Database connection pipeline crash error:", err));
-
+const User = require('./models/User');
 // --- API ENDPOINT ROUTE CHANNELS ---
 
+app.post("/api/auth/register", async (req, res) => {
+  try {
+    const { email, password, role } = req.body;
+
+    if (!email || !password) {
+      return res.status(400).json({ error: "Email and password properties are mandatory." });
+    }
+
+    const userExists = await User.findOne({ email });
+    if (userExists) {
+      return res.status(400).json({ error: "An account with this email is already registered." });
+    }
+
+    // When .create() calls 'save' under the hood, our pre-save hook triggers automatically!
+    const newUser = await User.create({
+      email,
+      password,
+      role: role || "Applicant"
+    });
+
+    return res.status(201).json({
+      message: "User account generated successfully.",
+      user: { _id: newUser._id, email: newUser.email, role: newUser.role }
+    });
+
+  } catch (err) {
+    return res.status(500).json({ error: "Failed to persist user profile down to database collection storage." });
+  }
+});
 // Verification Ping Gate
 app.get("/api/ping", (req, res) => {
   res.status(200).json({ message: "API server is running live!" });
