@@ -58,7 +58,43 @@ app.post("/api/auth/register", async (req, res) => {
 app.get("/api/ping", (req, res) => {
   res.status(200).json({ message: "API server is running live!" });
 });
+// Day 18: User Login & Token Issuance Route
+app.post("/api/auth/login", async (req, res) => {
+  try {
+    const { email, password } = req.body;
+    if (!email || !password) {
+      return res.status(400).json({ error: "Email and password are required." });
+    }
 
+    // A. Verify the email exists inside our local database storage documents
+    const user = await User.findOne({ email });
+    if (!user) {
+      return res.status(401).json({ error: "Invalid login credentials." });
+    }
+
+    // B. Verify the password by running an internal bcrypt comparison loop check
+    const isMatch = await bcrypt.compare(password, user.password);
+    if (!isMatch) {
+      return res.status(401).json({ error: "Invalid login credentials." });
+    }
+
+    // C. 🎯 Day 18 Complete: Sign and issue the stateless token verification key
+    const token = jwt.sign(
+      { id: user._id, role: user.role }, 
+      process.env.JWT_SECRET, 
+      { expiresIn: '1d' }
+    );
+
+    // D. Return success response payload, passing the token back to the React client app
+    return res.status(200).json({
+      message: "Authentication successful.",
+      token,
+      user: { _id: user._id, email: user.email, role: user.role }
+    });
+  } catch (err) {
+    return res.status(500).json({ error: "Authentication transaction pipeline failure." });
+  }
+});
 // Milestones GET Data Pathway
 app.get("/api/milestones", async(req, res) => {
     try{
