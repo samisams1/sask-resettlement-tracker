@@ -2,6 +2,8 @@
 const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
+const bcrypt = require('bcryptjs'); // 🚀 Ensure this line exists inside your User.js file!
+
 
 // 1. Load hidden environment parameters immediately at the very top of execution memory
 require('dotenv').config(); 
@@ -44,15 +46,22 @@ app.post("/api/auth/register", async (req, res) => {
       password,
       role: role || "Applicant"
     });
-
     return res.status(201).json({
       message: "User account generated successfully.",
       user: { _id: newUser._id, email: newUser.email, role: newUser.role }
     });
 
   } catch (err) {
-    return res.status(500).json({ error: "Failed to persist user profile down to database collection storage." });
-  }
+   // return res.status(500).json({ error: "Failed to persist user profile down to database collection storage." });
+// 1. Log the actual error to your terminal so you can read it!
+    console.error("REGISTRATION ERROR DETECTED:", err);
+
+    // 2. Return the real error message to Postman/Frontend temporarily
+    return res.status(500).json({ 
+      error: "Internal Server Error", 
+      details: err.message 
+    });  
+}
 });
 // Verification Ping Gate
 app.get("/api/ping", (req, res) => {
@@ -68,6 +77,7 @@ app.post("/api/auth/login", async (req, res) => {
 
     // A. Verify the email exists inside our local database storage documents
     const user = await User.findOne({ email });
+
     if (!user) {
       return res.status(401).json({ error: "Invalid login credentials." });
     }

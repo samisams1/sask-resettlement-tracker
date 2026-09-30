@@ -21,11 +21,11 @@ const UserSchema = new mongoose.Schema({
 });
 
 // The automated Mongoose interceptor hook
-UserSchema.pre('save', async function (next) {
+//UserSchema.pre('save', async function (next) {
   // Guard clause: Only hash the string if it is new or intentionally modified
-  if (!this.isModified('password')) return next();
 
-  try {
+//if (!this.isModified("password")) return;
+  /*try {
     // 1. Instantiate a randomized data noise profile using 10 salt rounds
     const salt = await bcrypt.genSalt(10);
 
@@ -35,7 +35,14 @@ UserSchema.pre('save', async function (next) {
     next(); // Relinquish execution tracking parameters back to the save queue
   } catch (err) {
     next(err);
-  }
-});
+  }*/
+//});
+UserSchema.pre("save", async function () {
+  // If password isn't modified, just exit the function early
+  if (!this.isModified("password")) return;
 
+  const salt = await bcrypt.genSalt(10);
+  this.password = await bcrypt.hash(this.password, salt);
+  // No next() needed! Mongoose knows it's done when the async function finishes.
+});
 module.exports = mongoose.model("User", UserSchema);
