@@ -3,7 +3,7 @@ const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs'); // 🚀 Ensure this line exists inside your User.js file!
-
+const jwt = require('jsonwebtoken');
 
 // 1. Load hidden environment parameters immediately at the very top of execution memory
 require('dotenv').config(); 
@@ -11,7 +11,7 @@ require('dotenv').config();
 //const db = require('./data/mockDb'); 
 const Milestone = require('./models/Milestone');
 const app = express();
- 
+ const authGuard = require('./middleware/authMiddleware'); 
 
 // 2. Extract configuration constants safely out of system memory using process.env
 const PORT = process.env.PORT || 5050; // Fallback to 5050 if PORT is undefined
@@ -27,7 +27,7 @@ mongoose.connect(MONGO_URI)
 const User = require('./models/User');
 // --- API ENDPOINT ROUTE CHANNELS ---
 
-app.post("/api/auth/register", async (req, res) => {
+app.post("/api/auth/register",authGuard, async (req, res) => {
   try {
     const { email, password, role } = req.body;
 
@@ -68,43 +68,55 @@ app.get("/api/ping", (req, res) => {
   res.status(200).json({ message: "API server is running live!" });
 });
 // Day 18: User Login & Token Issuance Route
-app.post("/api/auth/login", async (req, res) => {
+// server.js (Verify this complete block inside your file)
+app.post("/api/auth/login",authGuard, async (req, res) => {
   try {
     const { email, password } = req.body;
+
+    // A. Input Verification Guard
     if (!email || !password) {
-      return res.status(400).json({ error: "Email and password are required." });
+      return res.status(400).json({ error: "Email and password fields are mandatory." });
     }
 
-    // A. Verify the email exists inside our local database storage documents
+    // B. Query database collection records
     const user = await User.findOne({ email });
-
     if (!user) {
-      return res.status(401).json({ error: "Invalid login credentials." });
+      return res.status(401).json({ error: "Invalid login credentials parameters." });
     }
 
-    // B. Verify the password by running an internal bcrypt comparison loop check
+    // C. Cryptographic comparison check via bcrypt module
+    // 🚀 Ensure 'bcrypt' matches your required variable at the top of server.js!
     const isMatch = await bcrypt.compare(password, user.password);
     if (!isMatch) {
-      return res.status(401).json({ error: "Invalid login credentials." });
+      return res.status(401).json({ error: "Invalid login credentials parameters." });
     }
 
-    // C. 🎯 Day 18 Complete: Sign and issue the stateless token verification key
-    const token = jwt.sign(
+    // D. Sign and instantiate the stateless token
+    // 🚀 Ensure process.env.JWT_SECRET matches your .env file variable string exactly!
+  /*  const token = jwt.sign(
       { id: user._id, role: user.role }, 
       process.env.JWT_SECRET, 
       { expiresIn: '1d' }
+    );*/
+const token = jwt.sign(
+      { id: user._id, role: user.role }, 
+      'super_secret_saskatchewan_immigration_crypto_key_2026', 
+      { expiresIn: '1d' }
     );
-
-    // D. Return success response payload, passing the token back to the React client app
+    // E. Return clean success payload data block
     return res.status(200).json({
       message: "Authentication successful.",
       token,
       user: { _id: user._id, email: user.email, role: user.role }
     });
+
   } catch (err) {
+    // 🕵️‍♂️ Senior Dev Tip: Temporary debug trace log line to see the exact root crash cause inside your terminal window
+    console.error("CRITICAL AUTH LOG ERROR DETECTED:", err);
     return res.status(500).json({ error: "Authentication transaction pipeline failure." });
   }
 });
+
 // Milestones GET Data Pathway
 app.get("/api/milestones", async(req, res) => {
     try{
